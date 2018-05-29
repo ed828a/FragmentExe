@@ -1,25 +1,20 @@
 package com.dew.edward.fragmentexe.fragments
 
 
+import android.content.Context
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.Toast
-
-
 import com.dew.edward.fragmentexe.R
 import com.dew.edward.fragmentexe.Utilities.TAG
 import kotlinx.android.synthetic.main.fragment_title.*
 import kotlinx.android.synthetic.main.fragment_title.view.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -28,23 +23,39 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class TitleFragment : Fragment() {
+    private lateinit var fragmentListener: OnFragmentInteractionListener
 
-    private var leftTopButton: ImageButton? = null
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if (context is OnFragmentInteractionListener){
+            fragmentListener = context
+        } else {
+            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_title, container, false)
 
-        leftTopButton = view.id_title_left_btn
-        Log.v(TAG, "TitleFragment: leftTopButton: $leftTopButton")
-        leftTopButton?.setOnClickListener{
-            Toast.makeText(activity, "this is an ImageButton in Title Fragment.", Toast.LENGTH_SHORT).show()
-        }
+        Log.v(TAG, "TitleFragment: leftTopButton: ${view.id_title_left_btn}")
 
         return view
     }
 
+    interface OnFragmentInteractionListener {
+
+        fun onFragmentInteraction()
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        id_title_left_btn.setOnClickListener{
+            fragmentListener.onFragmentInteraction()
+        }
+    }
 
     companion object {
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuTiger"
+        android:icon="@drawable/ic_tiger_light"
+        android:title="tiger" />
+    <item
+        android:id="@+id/menuCheetah"
+        android:icon="@drawable/ic_cheetah_light"
+        android:title="Cheetah" />
+    <item
+        android:id="@+id/menuLion"
+        android:icon="@drawable/ic_lion_light"
+        android:title="Lion" />
+    <item
+        android:id="@+id/menudog"
+        android:icon="@drawable/ic_dog_light"
+        android:title="Dog" />
+
+</menu>

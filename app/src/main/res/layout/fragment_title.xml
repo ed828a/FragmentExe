@@ -2,7 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
     tools:context=".fragments.TitleFragment">
 
     <ImageButton
@@ -10,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
-        android:background="@drawable/showleft_selector"
+        android:background="@drawable/actionbar_selector3"
         android:contentDescription="@string/left_top" />
 
     <TextView
@@ -18,7 +19,7 @@
         android:layout_height="fill_parent"
         android:gravity="center"
         android:text="@string/this_is_not_we_chat"
-        android:textColor="#d2b2dc"
+        android:textColor="#fff"
         android:textSize="20sp"
         android:textStyle="bold" />
 
